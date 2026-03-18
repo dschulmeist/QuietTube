@@ -95,6 +95,16 @@ YouTube periodically updates their DOM structure, which can break CSS selectors.
 4. Test by loading the unpacked extension in Chrome
 5. Submit a pull request
 
+## Disclaimer
+
+QuietTube is an independent hobby project. It is **not** affiliated with, endorsed by, or associated with YouTube or Google in any way.
+
+This software is provided "as is", without warranty of any kind, express or implied. The author assumes no responsibility or liability for any damage, data loss, account restrictions, or other consequences arising from the use of this extension. Use it at your own risk.
+
+QuietTube relies on YouTube's current DOM structure to function. YouTube may change their interface at any time, which could cause features to stop working or behave unexpectedly. The author makes no guarantees regarding continued functionality, compatibility, or fitness for any particular purpose.
+
+By installing and using QuietTube, you acknowledge that you do so entirely at your own risk.
+
 ## License
 
 [MIT](LICENSE) — use it however you want.
