@@ -1,0 +1,28 @@
+# OS files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Editor/IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.settings/
+
+# Node (if ever added)
+node_modules/
+npm-debug.log*
+
+# Build output
+*.zip
+dist/
+
+# Environment & secrets
+.env
+.env.*
+
+# Claude
+CLAUDE.md

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      width: 300px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #111;
+      color: #e8e8e8;
+      padding: 0;
+    }
+
+    /* ── Header ─────────────────────────────── */
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 16px 12px;
+      border-bottom: 1px solid #2a2a2a;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .brand svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    .brand span {
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+
+    /* ── Toggle switch ──────────────────────── */
+    .switch {
+      position: relative;
+      width: 42px;
+      height: 24px;
+      flex-shrink: 0;
+    }
+
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      inset: 0;
+      background: #333;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .slider::before {
+      content: "";
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      left: 3px;
+      bottom: 3px;
+      background: #888;
+      border-radius: 50%;
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    input:checked + .slider {
+      background: #263f2e;
+    }
+
+    input:checked + .slider::before {
+      transform: translateX(18px);
+      background: #4ade80;
+    }
+
+    /* ── Feature list ───────────────────────── */
+    .features {
+      padding: 8px 0;
+    }
+
+    .feature-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 16px;
+      transition: opacity 0.2s;
+    }
+
+    .feature-row:hover {
+      background: #1a1a1a;
+    }
+
+    .feature-label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      color: #ccc;
+    }
+
+    .feature-icon {
+      width: 16px;
+      height: 16px;
+      opacity: 0.6;
+    }
+
+    /* Dim features when global is off */
+    body.global-off .features {
+      opacity: 0.35;
+      pointer-events: none;
+    }
+
+    /* ── Footer ─────────────────────────────── */
+    .footer {
+      padding: 10px 16px 12px;
+      border-top: 1px solid #2a2a2a;
+      text-align: center;
+    }
+
+    .footer a {
+      font-size: 11px;
+      color: #666;
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      color: #999;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header with global toggle -->
+  <div class="header">
+    <div class="brand">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+        <line x1="1" y1="1" x2="23" y2="23" stroke="#4ade80" stroke-width="2.5"/>
+      </svg>
+      <span>QuietTube</span>
+    </div>
+    <label class="switch">
+      <input type="checkbox" id="globalEnabled" checked>
+      <span class="slider"></span>
+    </label>
+  </div>
+
+  <!-- Per-feature toggles -->
+  <div class="features">
+    <div class="feature-row">
+      <span class="feature-label">
+        <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+        Home feed
+      </span>
+      <label class="switch"><input type="checkbox" data-key="homeFeed" checked><span class="slider"></span></label>
+    </div>
+    <div class="feature-row">
+      <span class="feature-label">
+        <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="16" y="3" width="5" height="18" rx="1"/><line x1="16" y1="8" x2="21" y2="8"/><line x1="16" y1="13" x2="21" y2="13"/></svg>
+        Sidebar recommendations
+      </span>
+      <label class="switch"><input type="checkbox" data-key="sidebar" checked><span class="slider"></span></label>
+    </div>
+    <div class="feature-row">
+      <span class="feature-label">
+        <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="14" rx="2"/><circle cx="12" cy="11" r="2"/></svg>
+        End-screen suggestions
+      </span>
+      <label class="switch"><input type="checkbox" data-key="endscreen" checked><span class="slider"></span></label>
+    </div>
+    <div class="feature-row">
+      <span class="feature-label">
+        <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="7" y="2" width="10" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18.01" stroke-width="3" stroke-linecap="round"/></svg>
+        Shorts
+      </span>
+      <label class="switch"><input type="checkbox" data-key="shorts" checked><span class="slider"></span></label>
+    </div>
+    <div class="feature-row">
+      <span class="feature-label">
+        <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        Comments
+      </span>
+      <label class="switch"><input type="checkbox" data-key="comments" checked><span class="slider"></span></label>
+    </div>
+    <div class="feature-row">
+      <span class="feature-label">
+        <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+        Trending / Explore
+      </span>
+      <label class="switch"><input type="checkbox" data-key="trending" checked><span class="slider"></span></label>
+    </div>
+    <div class="feature-row">
+      <span class="feature-label">
+        <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/><line x1="19" y1="5" x2="19" y2="19" stroke-width="2.5"/></svg>
+        Autoplay (force off)
+      </span>
+      <label class="switch"><input type="checkbox" data-key="autoplay" checked><span class="slider"></span></label>
+    </div>
+  </div>
+
+  <div class="footer">
+    <a href="https://github.com/dschulmeist/QuietTube" target="_blank">QuietTube v1.0.0 — Open Source</a>
+  </div>
+
+  <script src="config.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
