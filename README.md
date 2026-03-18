@@ -8,6 +8,21 @@ No ads for premium features. No time limits. No tracking. Just a clean, focused 
 
 > Tired of falling down the recommendation rabbit hole? QuietTube strips away the noise so you can watch what you came for and get back to work.
 
+## Before & After
+
+![Homepage Comparison](screenshots/07-comparison-homepage.png)
+![Watch Page Comparison](screenshots/08-comparison-watch-page.png)
+
+## Screenshots
+
+| Clean Homepage | Full-Width Player |
+|---|---|
+| ![Clean Homepage](screenshots/01-clean-homepage.png) | ![Full-Width Player](screenshots/02-fullwidth-player.png) |
+
+| Clean Watch Page | Popup UI |
+|---|---|
+| ![Clean Watch Page](screenshots/03-clean-watch-page.png) | ![Popup UI](screenshots/04-popup-ui.png) |
+
 ## What It Does
 
 QuietTube hides distracting elements on YouTube using lightweight CSS injection. Every feature is individually toggleable, and there's a global kill switch to turn everything on/off instantly.
@@ -67,15 +82,6 @@ QuietTube/
 └── scripts/
     └── package.sh  # Builds a .zip for Chrome Web Store submission
 ```
-
-## Publishing to Chrome Web Store
-
-1. Run `./scripts/package.sh` to generate `quiettube-1.0.0.zip`
-2. Go to the [Chrome Developer Dashboard](https://chrome.google.com/webstore/devconsole)
-3. Pay the one-time $5 registration fee (if you haven't already)
-4. Click **New Item** → upload the zip
-5. Fill in the listing details (description, screenshots, category)
-6. Submit for review (typically takes 1–3 business days)
 
 ## YouTube DOM Changes
 

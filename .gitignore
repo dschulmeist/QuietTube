@@ -24,5 +24,11 @@ dist/
 .env
 .env.*
 
+# Raw screenshots
+screenshots/Screenshot*
+
 # Claude
 CLAUDE.md
+
+# Internal docs
+DEPLOY.md
